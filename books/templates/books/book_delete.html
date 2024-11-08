@@ -1,0 +1,20 @@
+{% extends '_base.html' %}
+{% block title %} خذف کردن کتاب {{book.title}}{% endblock title %}
+
+
+
+
+{%block content%}
+
+<div class="container mt-4">
+    <p>   آیا از حذف کردن کتاب  "{{book.title}}" مطمئن هستی؟</p>
+<form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="بله! مطمئن هستم." class="btn btn-danger">
+</form>
+<a href="{% url 'book_list' %} ">
+    <input type="submit" value="خیر! پشیمان شدم." class="btn btn-warning mt-2 ">
+</a>
+
+</div>
+{%endblock content%}

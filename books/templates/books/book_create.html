@@ -1,0 +1,42 @@
+{% extends '_base.html'%}
+
+
+{% block title%} اصلاعات کتاب {{book.title}} {% endblock title%}
+
+{% block content %}
+
+
+
+<div class="container mt-4" dir="rtl">
+    <div class="row">
+        <div class="col-9">
+            <div class="card shadow my-3">
+                <h5 class="card-header bg-info text-dark px-5">اطلاعات کتاب را به درستی وارد نمایید.</h5>
+                <div class="px-5 pt-3 pb-5">
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <table>
+                        {{form.as_table}}
+                    </table>
+                        <button type="submit" class="btn btn-dark mt-2">ذخیره</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+
+                <div class="card my-3 shadow">
+                    <h5 class="card-header bg-warning text-light">راهنما</h5>
+                    <div class="card-body">
+                        <p class="card-text text-center">
+                            کاربر محترم باید برای هر کتاب اطلاعات به درستی و کامل وارد شود. اگر کتابی دارای جلد نیست برنامه به صورت خودکار یک تصویر از پیش طراحی شده را برای کتاب ثبت می کند.
+                        </p>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock content%}
