@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.rtl.min.css" integrity="sha384-OXTEbYDqaX2ZY/BOaZV/yFGChYHtrXH2nyXJ372n2Y8abBhrqacCEe+3qhSHtLjy" crossorigin="anonymous">
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+  
+    <title>{% block title%}{% endblock title%}</title>
+</head>
+<body>
+<!-- -----------------------------------------------------بخش اینفو-------------------------------------------- -->
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <a href="{% url 'home' %}"><img class="logo" src="{% static 'image/information_77957.png' %}" alt="" style="width:40px ; height: 40px;"></a>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              
+              <li class="nav-item ms-3">
+                <a class="nav-link active" aria-current="page" href="{% url 'home' %}"><img src="https://cdn.icon-icons.com/icons2/1581/PNG/512/3668851-facilities-flat-home-house_108007.png" alt="" style="width:40px ; height: 40px;"></a>
+                
+              </li>
+              <li class="nav-item ms-3">
+                <a class="nav-link active" aria-current="page" href="{% url 'book_list' %}"><img src="https://cdn.icon-icons.com/icons2/1559/PNG/512/3440920-bag-basket-cart-ecommerce-shop-shopping-store_107540.png" alt="" style="width:40px ; height: 40px;"></a>
+                
+              </li>
+
+              
+                <li class="nav-item ms-3">
+                <a class="nav-link active" aria-current="page" href=""><img src="https://cdn.icon-icons.com/icons2/624/PNG/512/About_Us-80_icon-icons.com_57384.png" alt="" style="width:40px ; height: 40px;"></a>
+                
+              </li>
+                <li class="nav-item ms-3">
+                <a class="nav-link active" aria-current="page" href=""><img src="https://cdn.icon-icons.com/icons2/1571/PNG/512/483486-contact-email-envelope-letter_107696.png" alt="" style="width:40px ; height: 40px;"></a>
+                
+              </li>
+              {% comment %} <li class="nav-item"><a class="nav-link " href="{% url 'book_create' %}"><img src="https://cdn.icon-icons.com/icons2/624/PNG/512/About_Us-80_icon-icons.com_57384.png" alt="" style="width:40px ; height: 400px;"></a></li>
+              <li class="nav-item"><a class="nav-link " href="{% url 'book_create' %}"><img src="https://cdn.icon-icons.com/icons2/1571/PNG/512/483486-contact-email-envelope-letter_107696.png" alt="" style="width:40px ; height: 40px;"></a></li> {% endcomment %}
+<!-- -----------------------------------------------بخش رنک ها---------------------------------------------------------------- -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  کتاب ها
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">کتاب های درسی</a></li>
+                  
+                </ul>
+<!-- -------------------------------------------------------------در باره ما-------------------------------------------------------------------------- -->
+</li>
+{%if user.is_authenticated%}
+<li class="nav-item"><a class="nav-link " href="{% url 'book_create' %}"><img src="https://cdn.icon-icons.com/icons2/1146/PNG/512/1486485586-add-document-contract-agreement-notic-file-plus_81158.png" alt="" style="width:40px ; height: 40px;"></a></li>
+
+{%endif%}
+</ul>
+<!-- --------------------------------------------------------------ارتباط با ما--------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------discord-------------------------------------------------------------------------------------- -->
+<!-- -----------------------------------------------------------------نشان دهنده عکس ایتم کنار لوگین------------------------------------- -->
+            <a href="">
+                <span class="me-5 fs-4 navbar-text">
+                    <i class="bi bi-cart3">Powered By Danial Maleki</i>
+                    <!-- <img src="https://img.icons8.com/carbon-copy/100/000000/shopping-cart.png" style="width:30%"/> -->
+                </span>
+<!-- -----------------------------------------------------------بخش لوگیم و  لاگ-------------------------------------------------------            -->
+            </a>
+            {% if user.is_authenticated %}
+            <span class="navbar-text me-2 ">Welcome | {{user.username}}</span>
+            <span class="me-2">|</span>
+            <a href="{% url 'logout' %}" class="text-decoration-none"><span class="navbar-text me-5 "><img src="https://cdn.icon-icons.com/icons2/1129/PNG/512/logouthousesymbolwitharrowpointingouttoright_79910.png" alt="" style="width:40px ; height: 40px;"></span></a>
+            {% else %}
+            <a href="{% url 'signup' %}" class="text-decoration-none">
+              <span class="navbar-text me-2 ">
+                <img src="https://cdn.icon-icons.com/icons2/20/PNG/256/businessregistration_signpen_negocio_inscripcio_2358.png" alt="" style="width:40px ; height: 40px;">
+              </span>
+              <span class="me-2 text-secondary">
+                |
+              </span>
+              <a href="{% url 'login' %}" class="text-decoration-none">
+                <span class="navbar-text me-5 ">
+                  <img src="https://cdn.icon-icons.com/icons2/368/PNG/512/Login_37128.png" alt="" style="width:40px ; height: 40px;">
+                </span>
+                
+              </a>
+              {% endif %}
+          </div>
+        </div>
+        
+      </nav>
+
+
+
+
+    
+    
+    <!-- <a class="menu" href="{% url 'home'%}" >صفحه اصلی</a>
+    <a class="menu" href="{% url 'book_list'%}" >نمایش محصولات</a>
+    <a class="menu" href="{% url 'book_create' %}" >ایجاد کتاب جدید</a> -->
+    {% block content %}
+
+    {% endblock content%}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+</body>
+</html>
